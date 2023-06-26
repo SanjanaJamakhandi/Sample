@@ -1,0 +1,84 @@
+<div id="feedback">
+  <form [formGroup]="feedback" (ngSubmit)=" onSubmit()">
+  
+      <p>
+          <label for="firstname">Firstname</label>
+          <input type="text" id="firstname" name="firstname" formControlName="firstname">
+      </p>
+      <p>
+          <label for="lastname">Lastname</label>
+          <input type="text" id="lastname" name="lastname" formControlName="lastname">
+      </p>
+  
+  
+      <p>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" formControlName="email">
+      </p>
+  
+  
+      <p>
+          <label for="gender">Gender</label>
+          <input type="radio"  value="male" id="gender" name="gender" formControlName="gender">Male
+          <input type="radio"  value="female" id="gender" name="gender" formControlName="gender">Female
+      </p>
+      <p>
+          <label for="country">Country</label>
+         <select name="country" id="country" formControlName="country">
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="UAE">UAE</option>
+         </select>
+      </p>
+      <p>
+          <label for="state">State</label>
+         <select name="state" id="state" formControlName="state">
+          <option value="karnataka">karnataka</option>
+          <option value="maharastra">maharastra</option>
+          <option value="kerala">kerala</option>
+          <option value="assam">assam</option>
+         </select>
+      </p>
+      <p>
+          <label for="comment">Comment</label>
+          <br><br>
+          <textarea  type="address" id="address" name="comment" formControlName="Comment"></textarea>
+      </p>
+  <button class="button-10" (click)="add()">submit</button>
+  <button class="button-10" (click)="Update()">Update</button>
+  
+  
+  </form>
+</div>
+  <div class="container">
+     <table id="table">
+      <tr>
+          <th>firstname</th>
+          <th>lastname</th>
+          <th>email</th>
+          <th>gender</th>  
+          <th>country</th>
+          <th>state</th>
+          <th>comment</th>
+          <th>Delete</th>
+          <th>Edit</th>
+  
+      </tr>
+      <tr  *ngFor="let regInfo of regInfos; let i=index">
+          <td>{{regInfo.firstname}}</td>
+          <td>{{regInfo.lastname}}</td>
+          <td>{{regInfo.email}}</td>
+          <td>{{regInfo.gender}}</td>
+          <td>{{regInfo.country}}</td>
+          <td>{{regInfo.state}}</td>
+          <td>{{regInfo.Comment}}</td>
+  
+         <td><button class="delete" (click)="delete(i)">Delete</button></td>
+          <td><button class="button" (click)="edit(regInfo,i)">Edit</button></td>
+  
+      
+      </tr>
+  </table> 
+  
+  </div>
